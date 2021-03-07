@@ -1,2 +1,2 @@
 - name: find interface facts
-  debug: msg={{ ansible_interfaces | select('match', '^wwp.*') }}
+  debug: msg={{ ansible_interfaces | select('match', '^wwp.*') | list }}
