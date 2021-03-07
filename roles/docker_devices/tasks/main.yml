@@ -1,3 +1,3 @@
-- name: Networking
+- name: Modem setup
   import_tasks: modem.yml
   when: ansible_interfaces | select('match', '^wwp.*') | list | length

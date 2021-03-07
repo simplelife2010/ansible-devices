@@ -1,2 +1,21 @@
-- name: find interface facts
-  debug: msg='modem!'
+- name: Install modem related packages
+  apt:
+    name: wvdial
+    update_cache: yes
+
+- name: wvdial configuration
+  src: etc_wvdial.conf
+  dest: /etc/wvdial.conf
+
+- name: peers configuration
+  src: etc_peers_wvdial
+  dest: /etc/ppp/peers/wvdial
+
+- name: dialup wait script
+  src: etc_ppp_wait-dialup-hardware
+  dest: /etc/ppp/wait-dialup-hardware
+  mode: 0755
+  
+- name: ppp0 interface definition
+  src: etc_interfaces.d_ppp0
+  dest: /etc/network/interfaces.d/ppp0
