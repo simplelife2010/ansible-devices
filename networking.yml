@@ -1,0 +1,3 @@
+- name: find interface facts
+  debug: msg=ansible_{{ item }}
+  with_items: "{{ ansible_interfaces }}"

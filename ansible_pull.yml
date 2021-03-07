@@ -35,12 +35,28 @@
     # Repository to check out -- YOU MUST CHANGE THIS
     # repo must contain a local.yml file at top level
     #repo_url: git://github.com/sfromm/ansible-playbooks.git
-    repo_url: git@github.com:simplelife2010/ansible-devices.git
+    repo_url: https://github.com/simplelife2010/ansible-devices.git
+
+  vars_prompt:
+
+    - name: hostname
+      prompt: Enter node id (like aim-node-12345678)
+      private: no
 
   tasks:
 
-    - name: Install ansible
-      apt: name=ansible update_cache=yes
+    - name: Set individual hostname
+      hostname: name={{hostname}}
+
+    - name: Set individual hosts file
+      template: src=templates/etc_hosts_ansible-pull.j2 dest=/etc/hosts owner=root group=root mode=0644
+
+    - name: Install ansible and dependencies
+      apt:
+        name:
+          - ansible
+          - git
+        update_cache: yes
 
     - name: Create local directory to work from
       file: path={{workdir}} state=directory owner=root group=root mode=0751
