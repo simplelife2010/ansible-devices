@@ -3,4 +3,4 @@
   hosts: all
   tasks:
     - include_tasks:
-			- networking.yml
+      - networking.yml
