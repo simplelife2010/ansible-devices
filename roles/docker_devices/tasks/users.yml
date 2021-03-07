@@ -25,7 +25,7 @@
   lineinfile:
     path: /etc/sudoers.d/ansibleuser
     line: 'ansibleuser ALL=(ALL) NOPASSWD: ALL'
-    state: '{{ user.state }}
+    state: '{{ user.state }}'
     mode: 0440
     create: yes
     validate: 'visudo -cf %s'
