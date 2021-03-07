@@ -6,3 +6,15 @@
 
 - name: Configure autossh
   template: src=etc_default_autossh.j2 dest=/etc/default/autossh
+
+- name: Deploy autossh service
+  copy:
+    src: etc_system_autossh.service
+    dest: /etc/systemd/sytem/autossh.service
+  notify: Restart autossh
+
+- name: Start and enable autossh service
+  systemd:
+    name: autossh
+    state: started
+    enabled: yes

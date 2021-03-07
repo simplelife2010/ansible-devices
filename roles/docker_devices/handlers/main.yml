@@ -1,3 +1,7 @@
 ---
 - name: Reboot
   command: shutdown -r
+- name: Restart autossh
+  systemd:
+    name: autossh
+    state: restarted
