@@ -10,7 +10,7 @@
 - name: Deploy autossh service
   copy:
     src: etc_system_autossh.service
-    dest: /etc/systemd/sytem/autossh.service
+    dest: /etc/systemd/system/autossh.service
   notify: Restart autossh
 
 - name: Start and enable autossh service
