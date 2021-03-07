@@ -1,0 +1,4 @@
+auto ppp0
+iface ppp0 inet wvdial
+  provider vodafone
+  pre-up /etc/ppp/wait-dialup-hardware ttyUSB0 60
