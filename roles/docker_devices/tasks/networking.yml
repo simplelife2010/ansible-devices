@@ -1,3 +1,4 @@
+---
 - name: Configure dhclient
   copy:
     src: etc_dhcp_dhclient.conf

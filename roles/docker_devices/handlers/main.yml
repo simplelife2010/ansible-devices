@@ -1,2 +1,3 @@
+---
 - name: Reboot
   command: shutdown -r

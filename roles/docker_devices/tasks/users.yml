@@ -1,0 +1,22 @@
+---
+- name: Set up user {{ user.username }}
+  user:
+    name: "{{ user.username }}"
+    state: "{{ user.state }}"
+    remove: yes
+- name: Create .ssh directory for {{ user.username }}
+  file:
+    path: /home/{{ user.username }}/.ssh
+    state: directory
+    owner: "{{ user.username }}"
+    group: "{{ user.username }}"
+    mode: 0700
+  when: user.state == "present"
+- name: Provide ssh public key for {{ user.username }}
+  copy:
+    src: authorized_keys.{{ user.username }}
+    dest: /home/{{ user.username }}/.ssh/authorized_keys
+    owner: "{{ user.username }}"
+    group: "{{ user.username }}"
+    mode: 0600
+  when: user.state == "present"

@@ -1,0 +1,10 @@
+---
+users:
+  - username: brunovetter
+    state:    present
+  - username: fabiannobis
+    state:    present
+  - username: sebastiankalb
+    state:    present
+  - username: dennisallendoerferkr
+    state:    present
