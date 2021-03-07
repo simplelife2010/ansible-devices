@@ -23,9 +23,8 @@
   when: user.state == "present"
 - name: Make {{ user.username }} sudoer
   lineinfile:
-    path: /etc/sudoers.d/ansibleuser
-    line: 'ansibleuser ALL=(ALL) NOPASSWD: ALL'
+    path: /etc/sudoers.d/{{ user.username }}
+    line: '{{ user.username }} ALL=(ALL) NOPASSWD: ALL'
     state: '{{ user.state }}'
     mode: 0440
     create: yes
-    validate: 'visudo -cf %s'
