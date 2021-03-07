@@ -7,19 +7,23 @@
   copy:
     src: etc_wvdial.conf
     dest: /etc/wvdial.conf
+  notify: Reboot
 
 - name: peers configuration
   copy:
     src: etc_peers_wvdial
     dest: /etc/ppp/peers/wvdial
+  notify: Reboot
 
 - name: dialup wait script
   copy:
     src: etc_ppp_wait-dialup-hardware
     dest: /etc/ppp/wait-dialup-hardware
     mode: 0755
+  notify: Reboot
   
 - name: ppp0 interface definition
   copy:
     src: etc_interfaces.d_ppp0
     dest: /etc/network/interfaces.d/ppp0
+  notify: Reboot
