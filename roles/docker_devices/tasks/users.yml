@@ -2,6 +2,7 @@
 - name: Set up user {{ user.username }}
   user:
     name: "{{ user.username }}"
+    shell: /bin/bash
     state: "{{ user.state }}"
     remove: yes
 - name: Create .ssh directory for {{ user.username }}
