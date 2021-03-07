@@ -1,2 +1,3 @@
 - name: Networking
-  import_tasks: networking.yml
+  import_tasks: modem.yml
+  when: '{{ ansible_interfaces | select('match', '^wwp.*') | list | length }}'
