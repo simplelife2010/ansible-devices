@@ -8,3 +8,7 @@ users:
     state:    present
   - username: dennisallendoerferkr
     state:    present
+reverse_tunnel_port: 20000
+management_host: mgmt.aim.noncd.db.de
+management_host_port: 2222
+management_host_user: tunnel

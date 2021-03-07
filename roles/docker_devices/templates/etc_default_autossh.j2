@@ -1,0 +1,5 @@
+AUTOSSH_POLL=60
+AUTOSSH_FIRST_POLL=30
+AUTOSSH_GATETIME=0
+AUTOSSH_PORT={{ reverse_tunnel_port + 1 }}
+SSH_OPTIONS="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o ServerAliveInterval=10 -o ServerAliveCountMax=50 -N -R {{ reverse_tunnel_port }}:localhost:22 {{ management_host_user }}@{{ management_host }} -p {{ management_host_port }} -i /etc/chef/client.pem"

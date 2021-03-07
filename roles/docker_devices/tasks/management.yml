@@ -1,0 +1,8 @@
+---
+- name: Install autossh
+  apt:
+    name: autossh
+    update_cache: yes
+
+- name: Configure autossh
+  template: src=etc_default_autossh.j2 dest=/etc/default/autossh

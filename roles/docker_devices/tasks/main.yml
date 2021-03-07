@@ -9,3 +9,5 @@
   loop: "{{ users }}"
   loop_control:
     loop_var: user
+- name: Remote management setup
+  import_tasks: management.yml
