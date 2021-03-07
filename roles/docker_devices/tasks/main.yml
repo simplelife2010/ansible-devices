@@ -7,7 +7,7 @@
 - name: User setup
   import_tasks: users.yml
 - name: User setup
-	include_tasks: users.yml
-	loop: "{{ users }}"
-	loop_control:
-		loop_var: user
+  include_tasks: users.yml
+  loop: "{{ users }}"
+  loop_control:
+    loop_var: user
