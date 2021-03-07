@@ -1,5 +1,5 @@
 ---
-- name: This is a hello-world example
+- name: Playbook for all devices
   hosts: all
   roles:
     - docker_devices
