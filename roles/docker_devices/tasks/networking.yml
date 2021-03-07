@@ -1,0 +1,6 @@
+- name: Configure dhclient
+  copy:
+    src: etc_dhcp_dhclient.conf
+    dest: /etc/dhcp/dhclient.conf
+  when: ansible_distribution == 'Debian'
+  notify: Reboot
